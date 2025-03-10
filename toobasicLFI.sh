@@ -31,7 +31,7 @@ fi
 else 
 echo -e "${RED}${BOLD}Server sets in no sniffing mode : *womp womp sound*${RESET}"
 fi
-fi 
+
 echo "Searching for /etc/hosts file..."
 echo "25% finished"
 
