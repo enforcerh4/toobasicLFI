@@ -19,7 +19,9 @@ Supported files (to increment):
 
 /etc/passwd
 
-/etc/shadow```
+/etc/shadow
+
+```
 
 Supported files are automatically tested and displayed if found
 
