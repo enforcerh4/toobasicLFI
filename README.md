@@ -23,5 +23,9 @@ Supported files (to increment):
 
 ```
 
-Supported files are automatically tested and displayed if found
+Supported files are automatically tested and displayed if found. 
+
+LEVEL OF RECURSION 
+
+You can control how deep will the software dive. Just remember that the deeper you're diving, less chances are to find what you're searching for.
 
