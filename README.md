@@ -14,11 +14,12 @@ This software is able to detect local file inclusions, using path traversal viol
 
 Supported files (to increment): 
 
-'/etc/hosts'
 
-'/etc/passwd'
+```/etc/hosts`
 
-'/etc/shadow'
+/etc/passwd
+
+/etc/shadow ```
 
 Supported files are automatically tested and displayed if found
 
