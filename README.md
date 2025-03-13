@@ -29,3 +29,11 @@ LEVEL OF RECURSION
 
 You can control how deep will the software dive. Just remember that the deeper you're diving, less chances are to find what you're searching for.
 
+## How to use it ? 
+
+Specify the target : 
+
+The first input parameter will always be considered as the URL you want to test. 
+
+Choose the recursion level : 
+- r, -- recursion
