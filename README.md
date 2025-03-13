@@ -15,7 +15,8 @@ This software is able to detect local file inclusions, using path traversal viol
 Supported files (to increment): 
 
 
-```/etc/hosts
+```
+/etc/hosts
 
 /etc/passwd
 
@@ -52,4 +53,11 @@ A ping never killed anyone.
 ``` Server sets in no sniffing mode```
 
 When you're asking for a server which methods are allowed it can sometimes tell you to fuck off. This is called no sniffing mode. 
+
 How dare you try to spy on me ? 
+
+``` Gotta dive deeper my friend ```
+You can't drown in a cup of water. The precedent step of recursion was a failure.  Maybe the sea will be deeper. 
+
+Also take a look at your soul while diving into the depths. 
+
