@@ -47,3 +47,9 @@ This can happen for several reason, I let you investigate by trying a curl on th
 
 Most of the time this message is triggered when you have actually no connexion.
 A ping never killed anyone. 
+
+
+``` Server sets in no sniffing mode```
+
+When you're asking for a server which methods are allowed it can sometimes tell you to fuck off. This is called no sniffing mode. 
+How dare you try to spy on me ? 
