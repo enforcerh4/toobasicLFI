@@ -41,12 +41,12 @@ Choose the recursion level :
 
 ## Error messages you can possibly encounter in the jungle : 
 
-``` Maybe you should think about having an actual connexion lmao (check your fucking interfaces man)```
+``` Maybe you should think about having an actual connection lmao (check your fucking interfaces man)```
 
 You receive this message when the curl output a 0 or 408/greatest error code. 
 This can happen for several reason, I let you investigate by trying a curl on the target ip. 
 
-Most of the time this message is triggered when you have actually no connexion.
+Most of the time this message is triggered when you have no connection.
 A ping never killed anyone. 
 
 
