@@ -52,7 +52,7 @@ A ping never killed anyone.
 
 ``` Server sets in no sniffing mode```
 
-When you're asking for a server which methods are allowed it can sometimes tell you to fuck off. This is called no sniffing mode. 
+When you're asking a server which methods are allowed it can sometimes tell you to fuck off. This is called no sniffing mode. 
 
 How dare you try to spy on me ? 
 
