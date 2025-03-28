@@ -37,7 +37,18 @@ Specify the target :
 The first input parameter will always be considered as the URL you want to test. 
 
 Choose the recursion level : 
-```- r, -- recursion```
+```- r number, -- recursion number```
+
+This parameter takes exactly one argument
+
+Try to bypass rules :
+```- a, -- advanced```
+This parameter doesn't take any argument
+
+### What are the most common rules used to protect URLs against LFI ? 
+
+1. % Inclusion
+2. // method 
 
 ## Error messages you can possibly encounter in the jungle : 
 
