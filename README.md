@@ -26,6 +26,8 @@ Supported files (to increment):
 
 Supported files are automatically tested and displayed if found. 
 
+## PHP Wrappers
+
 LEVEL OF RECURSION 
 
 You can control how deep will the software dive. Just remember that the deeper you're diving, less chances are to find what you're searching for.
@@ -44,6 +46,11 @@ This parameter takes exactly one argument
 Try to bypass rules :
 ```- a, -- advanced```
 This parameter doesn't take any argument
+
+Using php wrappers : 
+
+```- wrap <file>, -- wrapper <file>```
+You will only have to specify the file you wanna use
 
 ### What are the most common rules used to protect URLs against LFI ? 
 
