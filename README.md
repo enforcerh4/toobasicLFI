@@ -39,17 +39,21 @@ Specify the target :
 ```- u <url>, -- url <url> ```
 
 Choose the recursion level : 
+
 ```- r <number>, -- recursion <number>```
 
 This parameter takes exactly one argument
 
 Try to bypass rules :
+
 ```- a, -- advanced```
+
 This parameter doesn't take any argument
 
 Using php wrappers : 
 
 ```- wrap <file>, -- wrapper <file>```
+
 You will only have to specify the file you wanna use
 
 ### What are the most common rules used to protect URLs against LFI ? 
