@@ -34,7 +34,7 @@ You can control how deep will the software dive. Just remember that the deeper y
 
 Specify the target : 
 
-The first input parameter will always be considered as the URL you want to test. 
+```- u url, -- url url ```
 
 Choose the recursion level : 
 ```- r number, -- recursion number```
