@@ -34,10 +34,10 @@ You can control how deep will the software dive. Just remember that the deeper y
 
 Specify the target : 
 
-```- u url, -- url url ```
+```- u <url>, -- url <url> ```
 
 Choose the recursion level : 
-```- r number, -- recursion number```
+```- r <number>, -- recursion <number>```
 
 This parameter takes exactly one argument
 
