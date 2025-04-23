@@ -50,11 +50,11 @@ Try to bypass rules :
 
 This parameter doesn't take any argument
 
-Using php wrappers : 
+Verbose mode : 
 
-```- wrap <file>, -- wrapper <file>```
+```- v, -- verbose```
 
-You will only have to specify the file you wanna use
+This parameter doesn't take any argument it's just to chill, man. 
 
 ### What are the most common rules used to protect URLs against LFI ? 
 
