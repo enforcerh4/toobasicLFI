@@ -22,6 +22,13 @@ Supported files (to increment):
 
 /etc/shadow
 
+proc/self/environ
+var/log/apache2/access.log
+var/www/html/index.php
+proc/version
+etc/issue
+etc/apache2/apache2.conf
+etc/php/php.ini
 ```
 
 Supported files are automatically tested and displayed if found. 
