@@ -30,6 +30,8 @@ etc/php/php.ini
 
 Supported files are automatically tested and displayed if found. 
 
+It will soon be possible to use your own wordlist. 
+
 ## PHP Wrappers
 
 LEVEL OF RECURSION 
