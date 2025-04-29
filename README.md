@@ -16,16 +16,61 @@ Supported files (to increment):
 
 
 ```
-/etc/hosts
-/etc/passwd
-/etc/shadow
-proc/self/environ
-var/log/apache2/access.log
-var/www/html/index.php
-proc/version
-etc/issue
-etc/apache2/apache2.conf
-etc/php/php.ini
+/etc/passwd : Contient la liste des utilisateurs système (sans mots de passe)
+/etc/shadow : Contient les mots de passe chiffrés (souvent inaccessible)
+/etc/group : Informations sur les groupes d'utilisateurs
+/etc/hostname : Nom d’hôte du système
+/etc/issue : Message d'accueil affiché avant authentification
+/etc/fstab : Points de montage des systèmes de fichiers
+/etc/hosts : Résolution locale des noms d’hôtes
+/etc/resolv.conf : Configuration des serveurs DNS
+/etc/os-release : Informations sur la version du système d’exploitation
+/proc/version : Version du noyau Linux
+/proc/cpuinfo : Informations sur le processeur
+/proc/meminfo : Informations sur la mémoire physique
+/proc/self/environ : Variables d’environnement du processus en cours
+
+/var/log/syslog : Logs système principaux (Debian/Ubuntu)
+/var/log/messages : Logs système principaux (Red Hat/CentOS)
+/var/log/dmesg : Logs du démarrage du noyau
+/var/log/auth.log : Logs d’authentification (Debian/Ubuntu)
+/var/log/secure : Logs d’authentification (Red Hat/CentOS)
+/var/log/lastlog : Historique des dernières connexions
+/var/log/wtmp : Historique des connexions réussies au système
+/var/log/btmp : Logs des tentatives de connexion échouées
+
+/var/log/apache2/access.log : Logs d’accès Apache
+/var/log/apache2/error.log : Logs d’erreur Apache
+/var/log/nginx/access.log : Logs d’accès Nginx
+/var/log/nginx/error.log : Logs d’erreur Nginx
+
+/etc/apache2/apache2.conf : Configuration principale d’Apache
+/etc/nginx/nginx.conf : Configuration principale de Nginx
+/etc/php/php.ini : Configuration principale de PHP
+/etc/ssh/sshd_config : Configuration du service SSH
+/etc/cron.d : Tâches planifiées spécifiques
+/etc/crontab : Tâches planifiées globales
+/var/spool/cron/crontabs : Tâches Cron personnalisées des utilisateurs
+
+/var/www/html/index.php : Fichier PHP principal d'une application web
+/var/www/html/wp-config.php : Configuration WordPress avec les identifiants MySQL
+/var/www/html/.env : Contient souvent des configurations sensibles (bases de données, API)
+/var/www/html/config.php : Configurations d’applications diverses (frameworks, CMS)
+/var/www/html/.htaccess : Règles de réécriture pour Apache
+
+/proc/net/tcp : Informations sur les connexions TCP ouvertes
+/proc/net/udp : Informations sur les connexions UDP ouvertes
+/proc/net/arp : Tableau ARP (adresses IP et MAC)
+/proc/net/route : Table de routage réseau
+/proc/net/dev : Statistiques des interfaces réseau
+
+/root/.bash_history : Historique des commandes exécutées en tant que root
+/home/*/.bash_history : Historique des commandes des utilisateurs normaux
+/home/*/.ssh/id_rsa : Clé SSH privée d’un utilisateur
+/home/*/.ssh/authorized_keys : Clés SSH autorisées
+/tmp/sess_* : Sessions PHP temporaires (souvent exploitables)
+/var/log/httpd/access_log : Logs d’accès Apache (autre format)
+
 ```
 
 Supported files are automatically tested and displayed if found. 
@@ -98,4 +143,9 @@ How dare you try to spy on me ?
 You can't drown in a cup of water. The precedent step of recursion was a failure.  Maybe the sea will be deeper. 
 
 Also take a look at your soul while diving into the depths. 
+
+``` "You can't even find your own files in your computer and you wanna find some on a server xd ```
+
+It basically means that the file you're trying to use isn't found. Verify the path.
+
 
