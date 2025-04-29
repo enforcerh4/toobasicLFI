@@ -62,6 +62,17 @@ Verbose mode :
 
 This parameter doesn't take any argument it's just to chill, man. 
 
+```- d , -- display```
+
+You can choose how many lines you wanna display for the files found. Oc, it takes a number as an argument. 
+
+Soon to be released :
+
+```- w, -- wordlist```
+
+Because who wants to use a payload he didn't even crafted, defo no fun + less chances to hit.
+
+
 ### What are the most common rules used to protect URLs against LFI ? 
 
 1. % Inclusion
