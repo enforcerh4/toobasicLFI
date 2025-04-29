@@ -12,7 +12,7 @@ I just noticed that there were no simple tool to discover relatively simple LFI 
 
 This software is able to detect local file inclusions, using path traversal violation. 
 
-Supported files (to increment): 
+Basic wordlist : 
 
 
 ```
