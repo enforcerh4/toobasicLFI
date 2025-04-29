@@ -132,7 +132,7 @@ Most of the time this message is triggered when you have no connection.
 A ping never killed anyone. 
 
 
-``` Server sets in no sniffing mode```
+``` Server set in no sniffing mode```
 
 When you're asking a server which methods are allowed it can sometimes tell you to fuck off. This is called no sniffing mode. 
 
@@ -144,7 +144,7 @@ You can't drown in a cup of water. The precedent step of recursion was a failure
 
 Also take a look at your soul while diving into the depths. 
 
-``` "You can't even find your own files in your computer and you wanna find some on a server xd ```
+``` You can't even find your own files in your computer and you wanna find some on a server xd ```
 
 It basically means that the file you're trying to use isn't found. Verify the path.
 
