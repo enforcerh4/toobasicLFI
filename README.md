@@ -32,8 +32,6 @@ Supported files are automatically tested and displayed if found.
 
 It will soon be possible to use your own wordlist. 
 
-## Main features 
-
 LEVEL OF RECURSION 
 
 You can control how deep will the software dive. Just remember that the deeper you're diving, less chances are to find what you're searching for.
