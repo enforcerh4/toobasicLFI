@@ -103,7 +103,7 @@ echo
 echo "Code "$connexion_test""
 echo
 if [ "$connexion_test" -ge 408 ] || [ "$connexion_test" -eq 0 ]; then 
-echo -e "${RED}${BOLD}Maybe you should think about having an actual connexion lmao (check your fucking interfaces >
+echo -e "${RED}${BOLD}Maybe you should think about having an actual connexion lmao (check your fucking interfaces)"
 exit 1
 
 else
